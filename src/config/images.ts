@@ -1,0 +1,38 @@
+export const images = {
+  director: "/images/director.webp",
+  hero: "/images/hero.webp",
+  about: "/images/about.webp",
+  aboutBuilding: "/images/about-building.webp",
+  chairmanHero: "/images/chairman-hero.webp",
+  investorHero: "/images/investor-hero.webp",
+  landBankHero: "/images/land-bank-hero.webp",
+  landPresenceMap: "/images/NVRR_Land_Presence_Map.webp",
+  csrHero: "/images/csr-hero.webp",
+  amenitiesHero: "/images/amenities-hero.webp",
+  gallery: [
+    "/images/gallery-01.webp",
+    "/images/gallery-02.webp",
+    "/images/gallery-03.webp",
+    "/images/gallery-04.webp",
+    "/images/gallery-05.webp",
+    "/images/gallery-06.webp",
+    "/images/gallery-07.webp",
+    "/images/gallery-08.webp",
+    "/images/gallery-09.webp",
+    "/images/gallery-10.webp",
+    "/images/gallery-11.webp",
+    "/images/gallery-12.webp",
+    "/images/gallery-13.webp",
+    "/images/gallery-14.webp",
+    "/images/gallery-15.webp",
+    "/images/gallery-16.webp",
+    "/images/gallery-17.webp",
+  ],
+  testimonials: [
+    "/images/testimonial-01.webp",
+    "/images/testimonial-02.webp",
+    "/images/testimonial-03.webp",
+  ],
+} as const;
+
+export const IMAGE_QUALITY = 80;
