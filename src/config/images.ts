@@ -27,6 +27,12 @@ export const images = {
     "/images/gallery-15.webp",
     "/images/gallery-16.webp",
     "/images/gallery-17.webp",
+    "/images/gallery-18.webp",
+    "/images/gallery-19.webp",
+    "/images/gallery-20.webp",
+    "/images/gallery-21.webp",
+    "/images/gallery-22.webp",
+    "/images/gallery-23.webp",
   ],
   testimonials: [
     "/images/testimonial-01.webp",

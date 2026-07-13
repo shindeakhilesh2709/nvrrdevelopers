@@ -29,7 +29,7 @@ export const GallerySection = memo(function GallerySection() {
         <SectionHeading
           label="Gallery"
           title="Visual Journey Through Our Vision"
-          subtitle="Explore drone views, architecture, master plans, and construction progress."
+          subtitle="Explore drone views, architecture, master plans, construction progress, and our office spaces."
         />
 
         <FadeIn className="mb-8 flex flex-wrap justify-center gap-2">

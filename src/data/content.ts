@@ -43,9 +43,15 @@ export const galleryItems: GalleryItem[] = [
   { id: "15", title: "Tiered Garden Terraces", category: "Architecture", image: images.gallery[14] },
   { id: "16", title: "Grand Colonnade Pavilion", category: "Architecture", image: images.gallery[15] },
   { id: "17", title: "Futuristic Wave Facade", category: "Architecture", image: images.gallery[16] },
+  { id: "18", title: "Open Plan Workstations", category: "Office", image: images.gallery[17] },
+  { id: "19", title: "NVRR Office Entrance", category: "Office", image: images.gallery[18] },
+  { id: "20", title: "Reception & Waiting Area", category: "Office", image: images.gallery[19] },
+  { id: "21", title: "Conference Meeting Room", category: "Office", image: images.gallery[20] },
+  { id: "22", title: "Executive Boardroom", category: "Office", image: images.gallery[21] },
+  { id: "23", title: "Designated Workstations", category: "Office", image: images.gallery[22] },
 ];
 
-export const galleryCategories = ["All", "Drone Views", "Architecture", "Masterplans", "Construction", "Landscape", "Commercial", "Township"];
+export const galleryCategories = ["All", "Office", "Drone Views", "Architecture", "Masterplans", "Construction", "Landscape", "Commercial", "Township"];
 
 export const constructionSteps: ConstructionStep[] = [
   { id: "1", step: 1, title: "Land Acquisition & Due Diligence", description: "Rigorous title verification, environmental assessment, and regulatory approvals before any acquisition.", icon: "Search" },
