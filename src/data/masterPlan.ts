@@ -46,6 +46,29 @@ export const masterPlanItems: MasterPlanItem[] = [
   { id: "green-landscapes", title: "Green Landscapes", category: "sustainability", icon: "Trees", description: "40% green cover with native species, parks, and urban forests." },
 ];
 
+export const featuredMasterPlanIds = [
+  "luxury-apartments",
+  "premium-villas",
+  "hospital",
+  "international-school",
+  "business-district",
+  "it-park",
+] as const;
+
+const featuredDescriptions: Record<(typeof featuredMasterPlanIds)[number], string> = {
+  "luxury-apartments": "Premium high-rise residences with panoramic views and refined finishes.",
+  "premium-villas": "Exclusive villa communities with private gardens and bespoke architecture.",
+  hospital: "State-of-the-art healthcare with 500+ beds and advanced medical technology.",
+  "international-school": "CBSE and IB curriculum school with global standards of excellence.",
+  "business-district": "Central business hub with retail, dining, and professional services.",
+  "it-park": "Grade-A IT campus attracting global technology companies and startups.",
+};
+
+export const featuredMasterPlanItems: MasterPlanItem[] = featuredMasterPlanIds.map((id) => {
+  const item = masterPlanItems.find((entry) => entry.id === id)!;
+  return { ...item, description: featuredDescriptions[id] };
+});
+
 export const masterPlanCategories = [
   { id: "residential", label: "Residential", color: "#19C5C8" },
   { id: "healthcare", label: "Healthcare", color: "#E74C3C" },

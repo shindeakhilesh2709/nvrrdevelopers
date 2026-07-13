@@ -7,6 +7,7 @@ interface SectionHeadingProps {
   align?: "left" | "center";
   dark?: boolean;
   className?: string;
+  subtitleClassName?: string;
 }
 
 export function SectionHeading({
@@ -16,6 +17,7 @@ export function SectionHeading({
   align = "center",
   dark = false,
   className,
+  subtitleClassName,
 }: SectionHeadingProps) {
   return (
     <div
@@ -38,6 +40,7 @@ export function SectionHeading({
         <p
           className={cn(
             "mt-4 max-w-2xl text-base leading-relaxed break-words sm:text-lg",
+            subtitleClassName,
             align === "center" && "mx-auto",
             dark ? "text-white/70" : "text-navy/60"
           )}
