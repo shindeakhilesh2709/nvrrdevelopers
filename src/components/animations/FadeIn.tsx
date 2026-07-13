@@ -34,7 +34,7 @@ function FadeInComponent({
     <motion.div
       initial={false}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-30px" }}
+      viewport={{ once: true, margin: "-30px", amount: 0.12 }}
       transition={{ duration, delay, ease: [0.25, 0.4, 0.25, 1] }}
       className={className}
       style={gpuStyle}
@@ -60,7 +60,7 @@ export function StaggerContainer({
     <motion.div
       initial={false}
       whileInView="visible"
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: "-50px", amount: 0.12 }}
       variants={{
         hidden: {},
         visible: { transition: { staggerChildren: staggerDelay } },
@@ -110,7 +110,7 @@ export function ScaleIn({
     <motion.div
       initial={false}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true }}
+      viewport={{ once: true, amount: 0.12 }}
       transition={{ duration: 0.5, delay }}
       className={className}
     >

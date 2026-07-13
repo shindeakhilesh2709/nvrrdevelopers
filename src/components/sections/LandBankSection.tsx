@@ -9,13 +9,24 @@ import {
   type MouseEvent as ReactMouseEvent,
   type WheelEvent as ReactWheelEvent,
 } from "react";
+import dynamic from "next/dynamic";
 import Image from "next/image";
-import { LandBankMap } from "@/components/land-bank/LandBankMap";
 import { LandBankLocationCard } from "@/components/land-bank/LandBankLocationCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { landBankProjects } from "@/data/landBank";
+import { images } from "@/config/images";
+import { getOptimizedImageProps } from "@/lib/imageProps";
 
-const MAP_SRC = "/images/NVRR_Land_Presence_Map.webp";
+const LandBankMap = dynamic(
+  () => import("@/components/land-bank/LandBankMap").then((m) => ({ default: m.LandBankMap })),
+  {
+    loading: () => (
+      <div className="h-[420px] w-full animate-pulse rounded-2xl bg-navy/5 sm:h-[560px] lg:h-[720px]" aria-hidden />
+    ),
+  }
+);
+
+const MAP_SRC = images.landPresenceMap;
 const MAP_WIDTH = 1024;
 const MAP_HEIGHT = 682;
 const MIN_SCALE = 1;
@@ -311,11 +322,10 @@ function LandBankSectionComponent() {
                 alt="NVRR Land Presence"
                 width={MAP_WIDTH}
                 height={MAP_HEIGHT}
-                quality={90}
                 sizes="90vw"
                 className="max-h-[90vh] max-w-[90vw] object-contain"
                 draggable={false}
-                priority
+                {...getOptimizedImageProps(MAP_SRC)}
               />
             </div>
           </div>

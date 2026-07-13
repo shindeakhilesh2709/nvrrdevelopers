@@ -3,11 +3,19 @@
 import dynamic from "next/dynamic";
 import { ReactNode } from "react";
 import { Navbar } from "./Navbar";
-import { Footer } from "./Footer";
 import { PageLoader } from "@/components/ui/PageLoader";
-import { BackToTop } from "@/components/ui/BackToTop";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { HashScrollHandler } from "@/components/layout/HashScrollHandler";
+
+const Footer = dynamic(
+  () => import("./Footer").then((m) => ({ default: m.Footer })),
+  { loading: () => <footer className="bg-navy min-h-24" aria-hidden /> }
+);
+
+const BackToTop = dynamic(
+  () => import("@/components/ui/BackToTop").then((m) => ({ default: m.BackToTop })),
+  { ssr: false }
+);
 
 const CursorGlow = dynamic(
   () => import("@/components/ui/CursorGlow").then((m) => ({ default: m.CursorGlow })),

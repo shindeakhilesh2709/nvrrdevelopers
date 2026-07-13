@@ -27,7 +27,7 @@ export function HeroSection() {
       </div>
 
       {mounted && (
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
           <motion.div
             initial={false}
             animate={{ y: [0, -20, 0], opacity: [0.3, 0.6, 0.3] }}
@@ -44,37 +44,19 @@ export function HeroSection() {
       )}
 
       <div className="container-custom relative z-10 pt-28 pb-16 text-center sm:pt-32 sm:pb-20">
-        <motion.p
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          className="section-label mb-6 text-primary"
-        >
-          NVRR Developers Pvt Ltd
-        </motion.p>
+        <p className="section-label mb-6 text-primary">NVRR Developers Pvt Ltd</p>
 
-        <motion.h1
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          className="heading-xl mx-auto max-w-5xl text-white text-balance"
-        >
+        <h1 className="heading-xl mx-auto max-w-5xl text-white text-balance">
           Building Tomorrow&apos;s{" "}
           <span className="text-gradient">Smart Cities</span>
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg"
-        >
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
           Creating integrated communities with world-class residential,
           healthcare, education and commercial infrastructure.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={false}
-          animate={{ opacity: 1, y: 0 }}
-          className="mt-10 flex w-full max-w-lg flex-col items-stretch justify-center gap-4 sm:mx-auto sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center"
-        >
+        <div className="mt-10 flex w-full max-w-lg flex-col items-stretch justify-center gap-4 sm:mx-auto sm:max-w-none sm:flex-row sm:flex-wrap sm:items-center">
           <Button href="/#land-bank" variant="primary" className="w-full sm:w-auto">
             Explore Land Bank
           </Button>
@@ -84,14 +66,15 @@ export function HeroSection() {
           <Button href="/#contact" variant="outline" className="w-full sm:w-auto">
             Contact Us
           </Button>
-        </motion.div>
+        </div>
       </div>
 
       {mounted && (
         <motion.div
           initial={false}
           animate={{ opacity: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-none"
+          aria-hidden
         >
           <motion.div
             initial={false}

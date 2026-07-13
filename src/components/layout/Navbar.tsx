@@ -15,6 +15,7 @@ import { useLenis } from "@/providers/SmoothScrollProvider";
 import { NavItem } from "@/types";
 import { SectionId } from "@/config/sections";
 import { cn } from "@/lib/utils";
+import { getOptimizedImageProps } from "@/lib/imageProps";
 
 function isNavItemActive(item: NavItem, activeSection: SectionId | null): boolean {
   if (!activeSection) return false;
@@ -89,7 +90,7 @@ export function Navbar() {
               width={62}
               height={40}
               className="h-10 w-auto rounded-md"
-              priority
+              {...getOptimizedImageProps("/logo-mark.png", { priority: true })}
             />
             <span className="flex flex-col leading-tight">
               <span

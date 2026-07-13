@@ -1,11 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { footerLinks } from "@/data/navigation";
 import { siteConfig, socialLinks } from "@/config/site";
-import { NewsletterForm } from "@/components/ui/NewsletterForm";
 import { FooterHashLink } from "@/components/ui/FooterHashLink";
 import { isHashLink } from "@/lib/scroll";
+import { getOptimizedImageProps } from "@/lib/imageProps";
 import { Facebook, Instagram, Linkedin, Twitter, Youtube, Mail, Phone } from "lucide-react";
+
+const NewsletterForm = dynamic(
+  () =>
+    import("@/components/ui/NewsletterForm").then((m) => ({
+      default: m.NewsletterForm,
+    })),
+  { loading: () => <div className="h-10 animate-pulse rounded-full bg-white/10" aria-hidden /> }
+);
 
 function FooterLink({ href, label }: { href: string; label: string }) {
   const className = "text-sm text-white/70 hover:text-primary transition-colors";
@@ -38,6 +47,7 @@ export function Footer() {
                 width={68}
                 height={44}
                 className="h-11 w-auto rounded-md"
+                {...getOptimizedImageProps("/logo-mark.png", { loading: "lazy" })}
               />
               <span className="flex flex-col leading-tight">
                 <span className="font-heading text-xl font-bold tracking-wide text-white">

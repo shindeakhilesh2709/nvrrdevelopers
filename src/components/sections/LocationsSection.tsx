@@ -19,8 +19,10 @@ import {
   officeStats,
 } from "@/data/offices";
 import { MapPin, Globe, Building2 } from "lucide-react";
+import { images } from "@/config/images";
+import { getOptimizedImageProps } from "@/lib/imageProps";
 
-const MAP_SRC = "/images/worldpresence.webp";
+const MAP_SRC = images.worldPresenceMap;
 const MAP_WIDTH = 1024;
 const MAP_HEIGHT = 576;
 const MIN_SCALE = 1;
@@ -186,11 +188,9 @@ function LocationsSectionComponent() {
                   src={MAP_SRC}
                   alt="NVRR Developers global office presence"
                   fill
-                  priority={false}
-                  loading="lazy"
-                  quality={90}
                   sizes="(max-width: 768px) 100vw, 70vw"
                   className="object-contain"
+                  {...getOptimizedImageProps(MAP_SRC)}
                 />
               </div>
               <span className="pointer-events-none absolute bottom-3 right-3 rounded-full bg-navy/75 px-3 py-1 text-xs font-medium text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
@@ -352,11 +352,10 @@ function LocationsSectionComponent() {
                 alt="NVRR Developers global office presence"
                 width={MAP_WIDTH}
                 height={MAP_HEIGHT}
-                quality={90}
                 sizes="90vw"
                 className="max-h-[90vh] max-w-[90vw] object-contain"
                 draggable={false}
-                priority
+                {...getOptimizedImageProps(MAP_SRC)}
               />
             </div>
           </div>

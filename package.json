@@ -11,7 +11,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "compress-images": "node scripts/compress-images.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

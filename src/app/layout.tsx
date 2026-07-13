@@ -3,6 +3,7 @@ import { SmoothScrollProvider } from "@/providers/SmoothScrollProvider";
 import { MainLayout } from "@/components/layout/MainLayout";
 import { generateSEO, organizationSchema } from "@/lib/seo";
 import { images } from "@/config/images";
+import { fontVariables } from "@/lib/fonts";
 import "./globals.css";
 
 export const metadata = generateSEO();
@@ -15,21 +16,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-          rel="stylesheet"
-        />
         <link
           rel="preload"
           as="image"
           href={images.hero}
+          fetchPriority="high"
         />
         <script
           dangerouslySetInnerHTML={{
@@ -43,7 +34,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body suppressHydrationWarning>
+      <body className={fontVariables} suppressHydrationWarning>
         <ThemeProvider>
           <SmoothScrollProvider>
             <MainLayout>{children}</MainLayout>

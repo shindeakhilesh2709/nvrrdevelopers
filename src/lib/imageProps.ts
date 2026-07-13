@@ -4,6 +4,7 @@ import { IMAGE_QUALITY } from "@/config/images";
 interface OptimizedImageOptions {
   priority?: boolean;
   loading?: "lazy" | "eager";
+  sizes?: string;
 }
 
 export function getOptimizedImageProps(
@@ -14,9 +15,12 @@ export function getOptimizedImageProps(
 
   return {
     quality: IMAGE_QUALITY,
+    decoding: "async" as const,
     ...(blur
       ? { placeholder: "blur" as const, blurDataURL: blur }
       : {}),
-    ...(priority ? { priority: true } : { loading }),
+    ...(priority
+      ? { priority: true, fetchPriority: "high" as const }
+      : { loading }),
   };
 }

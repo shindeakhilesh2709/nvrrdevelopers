@@ -2,8 +2,15 @@ import dynamic from "next/dynamic";
 import { SectionAnchor } from "@/components/ui/SectionAnchor";
 import { SectionSkeleton } from "@/components/ui/SectionSkeleton";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { StatsBar } from "@/components/sections/StatsBar";
-import { AboutSection } from "@/components/sections/AboutSection";
+
+const StatsBar = dynamic(
+  () => import("@/components/sections/StatsBar").then((m) => ({ default: m.StatsBar })),
+  { loading: () => <SectionSkeleton className="!py-8" /> }
+);
+const AboutSection = dynamic(
+  () => import("@/components/sections/AboutSection").then((m) => ({ default: m.AboutSection })),
+  { loading: () => <SectionSkeleton /> }
+);
 
 const ChairmanSection = dynamic(
   () => import("@/components/sections/ChairmanSection").then((m) => ({ default: m.ChairmanSection })),

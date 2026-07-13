@@ -7,6 +7,7 @@ export const images = {
   investorHero: "/images/investor-hero.webp",
   landBankHero: "/images/land-bank-hero.webp",
   landPresenceMap: "/images/NVRR_Land_Presence_Map.webp",
+  worldPresenceMap: "/images/worldpresence.webp",
   csrHero: "/images/csr-hero.webp",
   amenitiesHero: "/images/amenities-hero.webp",
   gallery: [

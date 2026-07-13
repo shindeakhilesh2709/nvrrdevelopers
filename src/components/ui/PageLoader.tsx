@@ -11,8 +11,15 @@ export function PageLoader() {
 
   useEffect(() => {
     if (!mounted) return;
+    if (sessionStorage.getItem("nvrr-loaded")) {
+      setLoading(false);
+      return;
+    }
 
-    const hide = () => setLoading(false);
+    const hide = () => {
+      sessionStorage.setItem("nvrr-loaded", "1");
+      setLoading(false);
+    };
     if (document.readyState === "complete") {
       hide();
     } else {
