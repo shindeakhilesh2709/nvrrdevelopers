@@ -27,7 +27,9 @@ async function compressFile(filePath) {
   await pipeline.toFile(tempPath);
   const after = fs.statSync(tempPath).size;
   if (after < before) {
-    fs.renameSync(tempPath, filePath);
+    const optimized = fs.readFileSync(tempPath);
+    fs.writeFileSync(filePath, optimized);
+    fs.unlinkSync(tempPath);
     return { file: path.basename(filePath), before, after };
   }
 
@@ -42,9 +44,19 @@ async function main() {
     .map((f) => path.join(imagesDir, f));
 
   const results = [];
+  const skipped = [];
   for (const file of files) {
-    const result = await compressFile(file);
-    if (result) results.push(result);
+    try {
+      const result = await compressFile(file);
+      if (result) results.push(result);
+    } catch (error) {
+      const tempPath = `${file}.tmp`;
+      if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+      skipped.push({
+        file: path.basename(file),
+        reason: error.code ?? error.message,
+      });
+    }
   }
 
   results.sort((a, b) => b.before - a.before);
@@ -54,6 +66,12 @@ async function main() {
     );
   }
   console.log(`\nCompressed ${results.length} files`);
+  if (skipped.length) {
+    console.warn(`Skipped ${skipped.length} locked files:`);
+    for (const item of skipped) {
+      console.warn(`- ${item.file} (${item.reason})`);
+    }
+  }
 }
 
 main().catch((err) => {
